@@ -1,0 +1,15 @@
+create table student(
+     student_id int primary key,
+     student_name varchar(50),
+     student_age int,
+     student_major varchar(50));
+insert into student value
+(1,"Preethi","21","Mathsbio"),
+(2,"Suganya","20","computer science"),
+(3,"vanitha","22","economics"),
+(4,"Swetha","21","computer science"),
+(5,"sahi","22","purescience");
+select*from student where student_major="computer science";
+select * from student where student_age > 21 ;
+delete from student where student_id=1;
+select*from student;
