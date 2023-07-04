@@ -1,0 +1,31 @@
+create table books(
+   book_id int auto_increment primary key,
+   title varchar(50),
+   author varchar(100),
+   genre varchar(120),
+   publication_year year,
+   price int);
+insert into books (title,author,genre,publication_year,price)values
+("Grammer","Priya","English",2003,2500),
+("Anatomy","Biruntha","Biology",2006,3000),
+("History","Balakrishnan","ss",2009,3500),
+("Thirukural","RRR","Tamil",2012,4000),
+("Environment","DJK","Science",2015,45000);
+select * from books;
+select * from books where title="Grammer";
+update books set price=2600 where price=3000;
+select * from books;
+delete from books where title="Environment";
+select * from books;
+SELECT AVG(price) FROM Books;
+# Create the Authors table
+CREATE TABLE Authors (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    author_name VARCHAR(100));
+#Add a foreign key constraint in the Books table referencing the Authors table
+ALTER TABLE Books ADD COLUMN author_id INT;
+ALTER TABLE Books ADD FOREIGN KEY (author_id) REFERENCES Authors(author_id);
+SELECT Books.title, Authors.author_name
+FROM Books
+JOIN Authors ON Books.author_id = Authors.author_id;
+
