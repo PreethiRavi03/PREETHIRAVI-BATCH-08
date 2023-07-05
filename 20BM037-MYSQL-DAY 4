@@ -1,0 +1,32 @@
+create database Trading;
+create table customer (
+sno int primary key,
+name varchar(30),
+address varchar(40),
+gender varchar (25),
+age int );
+insert into customer value
+(1,"Ravi","Malayasia","MALE",21),
+(2,"Mahi","Tamilnadu","MALE",21),
+(3,"Preethi","Bangalore","FEMALE",20),
+(4,"Gokul","DUBAI","MALE",20),
+(5,"Varshan","Delhi","MALE",21);
+select * from customer;
+create table Market(
+s_no int primary key ,
+name varchar(30),
+purchasing_price int,
+selling_price int,
+sno int );
+insert into Market value
+   (01,"Ravi",3200,3500,1),
+   (02,"Mahi",5000,3500,2),
+   (03,"Preethi",2300,2800,3),
+   (04,"Gokul",4500,4750,4),
+   (05,"Varshan",1700,2000,5);
+select * from Market;
+select * from Market order by selling_price desc;
+select Market.s_no,Market.name,Market.purchasing_price,Market.selling_price,Market.sno from Market
+left join customer
+on Market.sno=customer.sno;
+select* from Market where selling_price>2900;
